@@ -1,0 +1,31 @@
+<div class="flex flex-col md:flex-row w-full h-full justify-between pt-2 md:pt-16">
+  <div data-controller="carousel" class="mx-auto md:mx-0 w-80 h-80 relative flex justify-center items-center">
+    <% @product.images.each do |image | %>
+      <%= image_tag(image, class: "h-full w-full hidden", data: { carousel_target: "image" }) %>
+    <% end %>
+    <div class="w-full h-full flex justify-between absolute items-center">
+      <a data-action="carousel#previous" class="select-none w-6 h-full flex items-center justify-center align-middle text-2xl hover:bg-gray-600 transition-all duration-200 cursor-pointer"><</a>
+      <a data-action="carousel#next" class="select-none w-6 h-full flex items-center justify-center text-2xl hover:bg-gray-600 transition-all duration-200 cursor-pointer">></a>
+    </div>
+  </div>
+  <div class="flex flex-col items-center w-full md:w-2/3 h-full pt-8">
+    <h2 class="text-2xl font-body text-center mb-8"><%= @product.name %></h2>
+    <div class="xl:w-3/4 text-center px-16">
+      <%= @product.description %>
+    </div>
+    <div class="mt-4" data-controller="price-calculator" data-price-calculator-per-oz-value="<%= @product.price_by_oz %>">
+      <h3 class="pb-4 text-center md:text-left"><%= @product.name.capitalize %> is <%= number_to_currency @product.price_by_pound %> per pound </h3>
+      <div class="flex justify-center md:justify-start items-center mb-10">
+        <label>Ounces:</label>
+        <input type="number" name="oz" value="16"
+         class="mx-2 w-40 bg-amber-100 border-0 border-b-2 focus:ring-0 focus:border-amber-600"
+         data-action="price-calculator#calculatePrice" min="4"></input>
+        <p data-price-calculator-target="totalPrice"></p>
+      </div>
+      <div class="flex w-full justify-between">
+        <a href="#" class="border-2 text-orange-800 border-orange-800 hover:text-orange-400 px-4 py-2">Add To Cart</a>
+        <a href="#" class="px-4 py-2 mr-2 border-b-2 border-gray-700 hover:border-orange-400 focus:border-orange-300">Buy now</a>
+      </div>
+    </div>
+  </div>
+</div>

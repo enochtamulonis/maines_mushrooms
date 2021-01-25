@@ -14,7 +14,15 @@ module.exports = {
     colors: {
       emerald: colors.emerald,
       amber: colors.amber,
-      orange: colors.orange
+      orange: colors.orange,
+      gray: colors.warmGray,
+      red: colors.rose
+    },
+    fontFamily: {
+      'sans': ['ui-sans-serif', 'system-ui'],
+      'serif': ['ui-serif', 'Georgia'],
+      'mono': ['ui-monospace', 'SFMono-Regular'],
+      'body': ['ABeeZee', 'sans-serif'],
     },
     extend: {},
   },

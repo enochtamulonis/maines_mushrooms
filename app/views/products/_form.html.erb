@@ -1,0 +1,48 @@
+<%= form_with(model: product) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, class: "block" %>
+    <%= form.text_field :name, class: "w-full" %>
+  </div>
+
+  <div class="field" data-uppy="product[images][]" %>
+    <%= @product.images.count if @product.images.attached? %> <%= form.label :images %>
+    <div class="flex w-full justify-between overflow-x-scroll">
+      <% if @product.images.attached? %>
+        <% @product.images.each do |image| %>
+          <%= image_tag(image, width: 200, class: "flex-shrink-0", data: { behavior: "uppy-preview"} ) %>
+        <% end %>
+      <% else %>
+        <div data-behavior="uppy-preview">
+        </div>
+      <% end %>
+    </div>
+
+    <%= link_to "Upload", "#", data: { behavior: "uppy-trigger"} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price_by_pound, class: "block" %>
+    <%= form.text_field :price_by_pound, class: "w-full" %>
+  </div>
+
+  <div class="field w-full">
+    <%= form.label :description, class: "block" %>
+    <%= form.rich_text_area :description, :class => "h-40 pl-1 focus:bg-amber-100" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

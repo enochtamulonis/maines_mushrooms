@@ -2,16 +2,22 @@
   "name": "mushroom-app",
   "private": true,
   "dependencies": {
+    "@excid3/uppy-activestorage-upload": "https://github.com/excid3/uppy-activestorage-upload.git",
     "@hotwired/turbo-rails": "^7.0.0-beta.4",
     "@rails/actioncable": "^6.0.0",
+    "@rails/actiontext": "^6.1.1",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/forms": "^0.2.1",
     "@tailwindcss/typography": "^0.4.0",
+    "@uppy/core": "^1.15.0",
+    "@uppy/dashboard": "^1.14.0",
     "stimulus": "^2.0.0",
-    "tailwindcss": "yarn:@tailwindcss/postcss7-compat"
+    "tailwindcss": "yarn:@tailwindcss/postcss7-compat",
+    "tailwindcss-stimulus-components": "^2.1.1",
+    "trix": "^1.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {

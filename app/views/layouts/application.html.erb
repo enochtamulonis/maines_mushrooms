@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <%= tag.meta name: "direct-upload-url", content: rails_direct_uploads_path %>
   </head>
 
   <body class="bg-amber-100">
-    <%= render "layouts/navbar" %>
-    <%= yield %>
+    <div class="w-full md:w-3/4 mx-auto">
+      <%= render "layouts/navbar" %>
+      <%= render 'layouts/alerts' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
