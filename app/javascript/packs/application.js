@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 import "@hotwired/turbo-rails"
 import "channels"
-import "stylesheets/application.scss"
+import "../stylesheets/application.scss"
 import "../controllers/index.js"
 
 require("trix")

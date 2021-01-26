@@ -2,4 +2,9 @@
   <a href="/" class="text-xl flex items-center text-gray-900"> <%= image_tag("mushroom", height: 50, width: 50, class: "pr-2")%>  Maine Mushrooms </a>
   <a href="/products" class="ml-6 text-gray-900 hover:text-gray-600">products</a>
   <a href="/about" class="ml-6 text-gray-900 hover:text-gray-600">about us</a>
+  <div class="flex ml-auto">
+    <%= image_tag("shopping-cart", :class => "h-6 w-6") %>
+    <%= @order.order_items.count %>
+    <%= number_to_currency @order.subtotal %>
+  </div>
 </div>
