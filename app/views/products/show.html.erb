@@ -1,5 +1,5 @@
 <div class="flex flex-col md:flex-row w-full h-full justify-between pt-2 md:pt-16">
-  <div data-controller="carousel" class="mx-auto md:mx-0 w-80 h-80 relative flex justify-center items-center">
+  <div data-controller="carousel" class="mt-6 mx-auto md:mx-0 w-80 h-80 relative flex justify-center items-center">
     <% @product.images.each do |image | %>
       <%= image_tag(image, class: "h-full w-full hidden", data: { carousel_target: "image" }) %>
     <% end %>
@@ -13,19 +13,23 @@
     <div class="xl:w-3/4 text-center px-16">
       <%= @product.description %>
     </div>
-    <div class="mt-4" data-controller="price-calculator" data-price-calculator-per-oz-value="<%= @product.price_by_oz %>">
-      <h3 class="pb-4 text-center md:text-left"><%= @product.name.capitalize %> is <%= number_to_currency @product.price_by_pound %> per pound </h3>
+    <h3 class="pb-4 text-center md:text-left"><%= @product.name.capitalize %> is <%= number_to_currency @product.price_by_pound %> per pound </h3>
+    <%= form_with model: @order.order_items.new, html: {
+        local: true,
+        data: { controller: "price-calculator", price_calculator_per_oz_value: @product.price_by_oz }
+      } do |form| %>
+      <%= form.hidden_field :product_id, value: @product.id %>
+
       <div class="flex justify-center md:justify-start items-center mb-10">
         <label>Ounces:</label>
-        <input type="number" name="oz" value="16"
+        <input type="number" name="order_item[weight_in_oz]" value="16"
          class="mx-2 w-40 bg-amber-100 border-0 border-b-2 focus:ring-0 focus:border-amber-600"
          data-action="price-calculator#calculatePrice" min="4"></input>
         <p data-price-calculator-target="totalPrice"></p>
       </div>
       <div class="flex w-full justify-between">
-        <a href="#" class="border-2 text-orange-800 border-orange-800 hover:text-orange-400 px-4 py-2">Add To Cart</a>
-        <a href="#" class="px-4 py-2 mr-2 border-b-2 border-gray-700 hover:border-orange-400 focus:border-orange-300">Buy now</a>
+        <%= form.submit "Add To Cart", :class => "border-2 bg-amber-100 text-orange-800 border-orange-800 hover:text-orange-400 px-4 py-2" %>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

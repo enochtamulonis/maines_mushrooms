@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :products
+  resources :order_items
   get '/home', to: "pages#home"
   get '/about', to: "pages#about"
   root 'pages#home'

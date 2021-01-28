@@ -3,6 +3,9 @@ class Product < ApplicationRecord
   has_rich_text :description
   before_save :set_price_by_oz
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   def price_by_oz
     self[:price_by_pound] / 16
   end

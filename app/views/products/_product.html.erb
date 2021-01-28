@@ -1,0 +1,13 @@
+<div class="flex flex-col items-center w-80">
+  <div data-controller="carousel" class="mx-auto md:mx-0 w-80 h-80 relative flex justify-center items-center">
+    <% product.images.each do |image | %>
+      <%= image_tag(image, class: "h-full w-full hidden", data: { carousel_target: "image" }) %>
+    <% end %>
+    <div class="w-full h-full flex justify-between absolute items-center">
+      <a data-action="carousel#previous" class="select-none w-6 h-full flex items-center justify-center align-middle text-2xl hover:bg-gray-600 transition-all duration-200 cursor-pointer"><</a>
+      <a data-action="carousel#next" class="select-none w-6 h-full flex items-center justify-center text-2xl hover:bg-gray-600 transition-all duration-200 cursor-pointer">></a>
+    </div>
+  </div>
+  <%= link_to product.name, product, :class => "text-lg" %>
+  <p><%= number_to_currency product.price_by_pound %>/lb | <%= number_to_currency product.price_by_oz %>/oz</p>
+</div>
