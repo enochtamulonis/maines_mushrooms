@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center w-80">
+<div class="flex flex-col items-center w-80 mb-20 mx-10">
   <div data-controller="carousel" class="mx-auto md:mx-0 w-80 h-80 relative flex justify-center items-center">
     <% product.images.each do |image | %>
       <%= image_tag(image, class: "h-full w-full hidden", data: { carousel_target: "image" }) %>

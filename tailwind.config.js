@@ -16,7 +16,8 @@ module.exports = {
       amber: colors.amber,
       orange: colors.orange,
       gray: colors.warmGray,
-      red: colors.rose
+      red: colors.rose,
+      transparent: 'transparent',
     },
     fontFamily: {
       'sans': ['ui-sans-serif', 'system-ui'],
