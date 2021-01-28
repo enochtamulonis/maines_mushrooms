@@ -15,12 +15,13 @@
     "@uppy/core": "^1.15.0",
     "@uppy/dashboard": "^1.14.0",
     "stimulus": "^2.0.0",
-    "tailwindcss": "yarn:@tailwindcss/postcss7-compat",
+    "tailwindcss": "^2.0.1-compat",
     "tailwindcss-stimulus-components": "^2.1.1",
     "trix": "^1.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "webpack-cli": "^4.4.0",
     "webpack-dev-server": "^3.11.2"
   }
 }
